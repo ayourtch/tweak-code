@@ -1,4 +1,3 @@
-= tweak-code
 
 This is a semi-useful prototype of a code rewriter for refactoring
 
@@ -19,23 +18,6 @@ This utility allows you to replace function calls, import paths, and crate refer
 
 The tool uses Rust's `syn` parser to correctly understand and modify Rust code while preserving the original formatting.
 
-## Installation
-
-Clone the repository and build with Cargo:
-
-```bash
-git clone <repository-url>
-cd rust-code-transformer
-cargo build --release
-```
-
-The compiled binary will be available in `target/release/`.
-
-## Usage
-
-```bash
-rust-code-transformer [OPTIONS]
-```
 
 ### Command Line Options
 
@@ -61,7 +43,7 @@ rust-code-transformer [OPTIONS]
 Replace all calls to `old_function` with `new_function`:
 
 ```bash
-rust-code-transformer --file-path src/main.rs --callsite-replace old_function=new_function
+tweak-code --file-path src/main.rs --callsite-replace old_function=new_function
 ```
 
 #### Qualified Path Replacement
@@ -69,7 +51,7 @@ rust-code-transformer --file-path src/main.rs --callsite-replace old_function=ne
 Replace a fully qualified path:
 
 ```bash
-rust-code-transformer --file-path src/main.rs --callsite-qreplace module::old_function=new_module::new_function
+tweak-code --file-path src/main.rs --callsite-qreplace module::old_function=new_module::new_function
 ```
 
 #### Crate Replacement
@@ -77,7 +59,7 @@ rust-code-transformer --file-path src/main.rs --callsite-qreplace module::old_fu
 Replace all imports from one crate with another:
 
 ```bash
-rust-code-transformer --file-path src/main.rs --path-replace old_crate=new_crate
+tweak-code --file-path src/main.rs --path-replace old_crate=new_crate
 ```
 
 #### Bulk Replacement Using Config File
@@ -162,4 +144,4 @@ This tool relies on the following Rust crates:
 
 ## License
 
-[Specify your license here]
+MIT
